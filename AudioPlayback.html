@@ -1,0 +1,63 @@
+<body>
+    <h1>Audio JsPlayback Test</h1>
+    <p>call jsapi to playback</p>
+	<div>
+		<button id="play">Play</button>
+		<button id="stop">Stop</button>
+	</div>
+    <div>
+        <button id="play_next">Play Next</button>
+    </div>
+    <script>
+        var playBtn = document.getElementById('play');
+        var stopBtn = document.getElementById('stop');
+        var playNextBtn = document.getElementById('play_next');
+
+        var playSound = function() {
+            console.log("playSound clicked");
+            if (EdgeBridge) {
+                console.log("playSound sending message to EdgeBridge");
+                EdgeBridge.sendMessage({
+                    partner: "Sydney",
+                    data: {
+                        url: "http://www.sousound.com/music/healing/healing_01.mp3",
+                        action: "play"
+                    }
+                })
+            }
+        };
+
+        var playNextSound = function() {
+            console.log("playNextSound clicked");
+            if (EdgeBridge) {
+                console.log("playNextSound sending message to EdgeBridge");
+                EdgeBridge.sendMessage({
+                    partner: "Sydney",
+                    data: {
+                        url: "http://www.sousound.com/music/healing/healing_02.mp3",
+                        action: "play"
+                    }
+                })
+            }
+        };
+
+        var stopSound = function() {
+            console.log("stopSound clicked");
+            if (EdgeBridge) {
+                console.log("stopSound sending message to EdgeBridge");
+                EdgeBridge.sendMessage({
+                    partner: "Sydney",qaaawsrdxe34reccr r≈
+                    data: {
+                        action: "stop"
+                    }
+                })
+            }
+        };
+
+        playSound();
+
+        playBtn.addEventListener('click', playSound, false);
+        stopBtn.addEventListener('click', stopSound, false);
+        playNextBtn.addEventListener('click', playNextSound, false);
+    </script>
+</body>
